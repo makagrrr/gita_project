@@ -1,0 +1,51 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    text-decoration: none;
+}
+.nav-menu li {
+    list-style: none;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: azure;
+    font-size: 24px;
+
+
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.page-content {
+    padding: 40px;
+    text-align: center;
+    background-color: rgba(208, 184, 165, 0.929);
+}
+.customers-page-heading {
+    text-align: center;
+}
+
+.coming-soon {
+    text-align: center;
+}
+.coming-soon img{
+    height: 300px;
+    width: 300px;
+}
+.back-to-products {
+    text-align: center;
+    font-size: 30px;
+    color: black;
+}
