@@ -1,4 +1,4 @@
-*{
+* {
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -16,7 +16,6 @@ nav ul{
     align-items: center;
     justify-content: space-around;
     padding: 20px;
-    background-color: azure;
     font-size: 24px;
 
 
@@ -48,4 +47,40 @@ nav ul{
     text-align: center;
     font-size: 30px;
     color: black;
+}
+
+
+#multiply {
+    border: 1px solid orange;
+    color: gold;
+}
+.highlight {
+    border: 1px solid red;
+}
+
+.customer {
+    width: auto;
+    height: auto;
+    border: 1px solid orange;
+    color: rgb(11, 45, 11);
+    text-align: center;
+    margin: 5px;
+}
+.table-container {
+    width: 800px;
+    border: 1px solid red;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+.table-container button {
+    width: 100px;
+}
+.table-container td {
+    padding: 20px;
+}
+.table-item td:hover {
+    background-color: aliceblue;
 }

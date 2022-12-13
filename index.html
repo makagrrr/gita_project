@@ -5,33 +5,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <meta name="description" content="">
-
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="./script.css">
-
-    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="./script.js"></script>
 
 
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <a href="./index.html"> Online Shop Admin  |</a>
-            <div class="nav-menu">
-                <li><a href="./index.html">Products</a></li>
-                <li><a href="./customers.html">Customers</a></li>
-                <li><a href="./orders.html">Orders</a></li>
-                <li><a href ="./reports.html">Reports</a></li>
-            </div>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <a href="./index.html"> Online Shop Admin  |</a>
+                <div class="nav-menu">
+                    <li><a href="./index.html">Products</a></li>
+                    <li><a href="./customers.html">Customers</a></li>
+                    <li><a href="./orders.html">Orders</a></li>
+                    <li><a href ="./reports.html">Reports</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
 
-    <button id="intro"> 1 </button>
+    <table style="display: none">
+        <tr id="rowUsedOnlyForCloning">
+            <td class="product-name"> Apple </td>
+            <td class="product-number"> app_22 </td>
+            <td class="product-price"> $1.7</td>
+            <td class="product-color"> Green</td>
+            <td class="product-category"> Fruits</td>
+            <td>
+                <button class="btn btn-primary" > edit </button>
+                <button class="btn btn-secondary" > delete</button>
+            </td>
+        </tr>
+    </table>
+
+    <table class="table table-borders" id="products-table">
+        <tr>
+            <th> Name</th>
+            <th> Amount</th>
+            <th> Price</th>
+            <th> Color</th>
+            <th> Category</th>
+            <th> Actions </th>
+        </tr>
+
+        <!-- <tr id="firstRow">
+            <td> Orange </td>
+            <td> org_22 </td>
+            <td> $1.2</td>
+            <td> Orange</td>
+            <td> Fruits</td>
+            <td>
+                <button class="btn btn-primary" > edit </button>
+                <button class="btn btn-secondary" > delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td> Apple </td>
+            <td> app_22 </td>
+            <td> $1.7</td>
+            <td> Green</td>
+            <td> Fruits</td>
+            <td>
+                <button class="btn btn-primary" > edit </button>
+                <button class="btn btn-secondary" > delete</button>
+            </td>
+        </tr> -->
+    </table>
+
+    <button onclick="cloneTheLastRow()" class="btn btn-info">Clone the last row</button>
+    <button onclick="createARow()" class="btn btn-info"> Create a row</button>
+    <h2 class="paragr" >
+       class paragraph
+    </h2>
+
+    <h2 id="ident">
+        this is id
+    </h2>
+
+    <h1 id="header" onmouseover="changeText()"> hi </h1>
+
+    <p id="hide-el"> hide me</p>
+
+    <div class="customer-container">
+        <div class="customer"> customer list</div>
+    </div>
     
-    <button onclick="clickHeader()"> Hello </button>
+    <button id="btn" onclick="addCustomer()" > button </button>
+
+    <div>
+        <h3 id="multiply"> Multiply this paragraph </h3>
+    </div>
+
+
+    <div class="table-container">
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Amount</th>
+        </tr>
+        <button class="btn btn-primary" onclick="submitProducts()"> Submit </button>
+    </div>
+
+    <div class="members">
+        <button class="btn btn-primary" onclick="submitMember()"> submit </button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./script.js" ></script>
 </body>
 </html>
