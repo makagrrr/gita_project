@@ -1,0 +1,94 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Products Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="script.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!-- <nav>
+            <a href="index.html" class="btn btn-secondary">Products</a>
+            <!-- <a href="Customers.html" class="btn btn-outline-secondary">Customers</a>|
+            <a href="Orders.html" class="btn btn-outline-secondary">Orders</a>|
+            <a href="Reports.html" class="btn btn-outline-secondary">Reports</a> 
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Products <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="customers.html">Customers</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="orders.html">Orders</a>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <form action="" method="get" class="edit-form">
+        <div class="edit-heading">
+            <h1>
+                Product Edit
+            </h1>
+            <hr>
+        </div>
+        <div class="form-container">
+            <div class="form-group">
+            <label class="text-input-label" for="firstName"> Name:</label>
+            <input class="input-text" type="text" name="name" id="name" >
+          </div>
+          <div class="form-group">
+            <label class="text-input-label" for="lastName"> Product Number: </label>
+            <input class="input-text" type="text" name="productNumber" id="productNumber" >
+          </div>
+          <div class="form-group">
+            <label class="text-input-label" for="color"> Color: </label>
+            <input class="input-text" type="text" name="color" id="color" >
+          </div>
+          <div class="form-group">
+            <label class="text-input-label" for="cost"> Standard Cost: </label>
+            <input class="input-text" type="number" name="cost" id="cost" >
+          </div>
+          <div class="form-group">
+            <label class="text-input-label" for="price">List Price: </label>
+            <input class="input-text" type="number" name="price" id="price">
+          </div>
+          <div class="form-group">
+              <label class="text-input-label" for="size">Size: </label>
+              <input class="input-text" type="number" name="size" id="size">
+            </div>
+            <div class="form-group">
+              <label class="text-input-label" for="weight">Weight: </label>
+              <input class="input-text" type="number" name="weight" id="weight">
+            </div>
+            <div class="form-group">
+              <label class="text-input-label" for="time">Sell Start Date: </label>
+              <input class="input-text" type="password" name="price" id="price">
+            </div></div>
+        <div class="sign-up-button">
+          <button class="btn btn-success">Save</button>
+          <button class="btn btn-secondary">Back to list</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </form>
+</body>
+</html>
