@@ -31,7 +31,7 @@ submitCreateBtn.addEventListener('click', () => {
     let numberValue = number.value;
     let colorValue = color.value;
     let priceValue = price.value;
-    
+
     let newProduct = `
         <tr class="product-row">
             <td> ${nnameValue}</td>
@@ -40,17 +40,14 @@ submitCreateBtn.addEventListener('click', () => {
             <td> ${priceValue}</td>
             <td> ${modifiedDate}</td>
             <td>
-                <button type='submit' class="btn btn-secondary edit-btn edit">Edit</button>
-                <button class="btn btn-danger delete product-delete-btn">Delete</button>
+                <button onclick="editProduct()" type='submit' class="btn btn-secondary new-product-edit-btn edit">Edit</button>
+                <button onclick="deleteProduct()" class="btn btn-danger delete new-product-delete-btn">Delete</button>
             </td>
         </tr>
     `
-    
     productListCreate.innerHTML += newProduct;
+    newProduct.className = "productRow";
+    console.log(newProduct);
     mainSection.style.display = "block";
     createSection.style.display = "none";
-    console.log(newProduct)
-    //confirmationSection.style.display = "block";
-    //productDeleteBtn.style.display= "inline";
-    //editBtn.style.display="inline"
 });

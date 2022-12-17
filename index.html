@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="script.css">
         <script src="https://code.jquery.com/jquery-3.6.1.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
-        <script src="script.js" defer></script>
         <script src="validation.js" defer></script>
         <script src="addProduct.js" defer></script>
         <script src="listeners.js" defer></script>
@@ -21,31 +20,26 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="customers.html">Customers</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="orders.html">Orders</a>
-                </li><li class="nav-item">
-                    <a class="nav-link" href="reports.html">Reports</a>
-                  </li>
-              </ul>
+      <nav class="navbar">
+        <a class="logo" href="index.html">Online Admin Shop</a>
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle">
+            <label for="checkbox_toggle" class="hamburger">&#9776</label>
+            <div class="nav-menu">
+                <li><a href="./index.html">Products</a></li>
+                <li><a href="customers.html">Customers</a></li>
+                <li><a href="./orders.html">orders</a></li>
+                <li><a href="./reports.html">Reports</a></li>
             </div>
-          </nav>
+        </ul>
+    </nav>
     </header>
   <main>
     <section class="main-product-page">
-      <h1>Products Page</h1>
+      <h1>Products </h1>
+      <div class="filter">
+
+      </div>
       <table class="table table-striped " id="productsTable">
         <thead>
           <tr>
@@ -65,8 +59,8 @@
             <td class="price"> 800 </td>
             <td class="modify-date">  </td>
             <td> 
-                <button type='submit' class="btn btn-secondary edit-btn edit">Edit</button>
-                <button class="btn btn-danger delete product-delete-btn">Delete</button>
+                <button onclick="editProduct()" type='submit' class="btn btn-secondary edit-btn edit">Edit</button>
+                <button onclick="deleteProduct()" class="btn btn-danger delete product-delete-btn">Delete</button>
             </td> 
         </tr>   
         </tbody>
@@ -128,9 +122,9 @@
       </div>
     </div>
   <div class="sign-up-button">
-    <button onclick = saveEditedProduct() class="btn btn-success submit-create-btn" type="submit">Submit</button>
-    <button onclick = returnToList() class="btn btn-secondary return-btn">Back to list</button>
-    <button onclick = deleteProduct() class="btn btn-danger cancel-create-btn">Cancel</button>
+    <button class="btn btn-success submit-create-btn" type="submit">Submit</button>
+    <button onclick="returnToList()"class="btn btn-secondary return-btn">Back to list</button>
+    <button class="btn btn-danger cancel-create-btn">Cancel</button>
   </div>
 </form>
 </section>
@@ -187,9 +181,9 @@
         </div>
       </div>
     <div class="sign-up-button">
-      <button onclick = saveEditedProduct() class="btn btn-success submit-edit-btn" type="submit">Submit</button>
-      <button onclick = returnToList() class="btn btn-secondary return-btn">Back to list</button>
-      <button onclick = deleteProduct() class="btn btn-danger delete-edit-btn">Delete</button>
+      <button class="btn btn-success submit-edit-btn" type="submit">Submit</button>
+      <button onclick="returnBtn()" class="btn btn-secondary return-btn">Back to list</button>
+      <button onclick="returnBtn()" class="btn btn-danger delete-edit-btn">Delete</button>
     </div>
   </form>
 </section>
@@ -242,9 +236,9 @@
     </div>
 
   </div>
-  <div class="delete-confirmation-buttons">
+  <div  >
     <button class="btn btn-danger confirm-delete-btn"> Delete the Product</button>
-    <button class="btn btn-primary confirm-cancel-btn">Cancel - Back to List</button>
+    <button onclick="returnBtn()" class="btn btn-primary confirm-cancel-btn">Cancel - Back to List</button>
   </div>
 </section>
 </main>

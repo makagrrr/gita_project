@@ -8,24 +8,76 @@
 a {
     text-decoration: none;
 }
-.nav-menu li {
-    list-style: none;
-}
-nav ul{
+
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 20px;
-    font-size: 24px;
+    background-color: white;
+    color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+   }
+   .nav-links {
+    margin-top: 8px;
 
-
-}
-.nav-menu {
+   }
+   .navbar li {
+    list-style: none;
+   }
+   .nav-links a {
+    color: black;
+   }
+   
+   .nav-menu {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     gap: 1em;
-}
+    font-size: 18px;
+   }
+   
+ 
+   .nav-menu li {
+    padding: 5px 14px;
+   }
+   .navbar input[type=checkbox]{
+    display: none;
+   } 
+   .hamburger {
+    display: none;
+    font-size: 28px;
+    user-select: none;
+   }
+
+  
+   @media (max-width: 768px) {
+   .nav-menu { 
+    display:none;
+    position: absolute;
+    background-color:white;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+   }
+   .nav-menu li + li {
+    margin-top: 12px;
+   }
+   input[type=checkbox]:checked ~ .nav-menu{
+    display: block;
+    position: absolute;
+    z-index: 1;
+   }
+  
+   .hamburger {
+    display: block;
+   }
+   .logo {
+     margin: auto;
+   }
+   }
 
 .page-content {
     padding: 40px;
@@ -151,6 +203,7 @@ label {
 }
 main {
     position: relative;
+    margin: 20px;
 }
 .edit-form-section {
     width: 800px;
