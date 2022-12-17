@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a {
@@ -30,7 +30,6 @@ nav ul{
 .page-content {
     padding: 40px;
     text-align: center;
-    background-color: rgba(208, 184, 165, 0.929);
 }
 .customers-page-heading {
     text-align: center;
@@ -86,23 +85,81 @@ nav ul{
 } 
 
 .edit-form {
-    width: 600px;
-    border: 1px solid red;
+    width: 800px;
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
 .form-group {
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
 }
 .form-group input {
     width: 350px;
     border: 1px solid rgb(182, 175, 175);
-    border-radius: 5px;;
+    border-radius: 5px;
 }
 
 .sign-up-button {
     align-self: flex-end;
     
 }
+
+label {
+    width: 200px;
+    
+}
+.form-group  {
+    padding-bottom: 15px;;
+}
+.error-message-name {
+    visibility: hidden;
+    position: absolute;
+    color: red;
+}
+.error-message-number {
+    visibility: hidden;
+    position: absolute;
+    color: red;
+
+}
+.error-message-price {
+    visibility: hidden;
+    position: absolute;
+    color: red;
+
+}
+.delete-confirmation {
+    margin: 40px;
+    width: 800px;
+}
+.delete-confirmation h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+.delete-warning {
+    width: auto;
+    background-color: rgb(170, 132, 132);
+    color: rgb(207, 62, 62);
+    border: 1px solid red;
+}
+.create-form-section{
+
+    width: 800px;
+    margin: auto;
+    margin: 40px;
+    border: 0.5px solid grey;
+}
+main {
+    position: relative;
+}
+.edit-form-section {
+    width: 800px;
+    margin: 40px;
+    border: 0.5px solid grey;
+}
+/* .edit-btn {
+    display: none;
+}
+.product-delete-btn {
+    display: none;
+} */

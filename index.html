@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,16 +13,14 @@
         <script src="https://code.jquery.com/jquery-3.6.1.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
         <script src="script.js" defer></script>
+        <script src="validation.js" defer></script>
+        <script src="addProduct.js" defer></script>
+        <script src="listeners.js" defer></script>
+
     </head>
 
 <body>
     <header>
-        <!-- <nav>
-            <a href="index.html" class="btn btn-secondary">Products</a>
-            <!-- <a href="Customers.html" class="btn btn-outline-secondary">Customers</a>|
-            <a href="Orders.html" class="btn btn-outline-secondary">Orders</a>|
-            <a href="Reports.html" class="btn btn-outline-secondary">Reports</a> 
-        </nav> -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,42 +43,211 @@
             </div>
           </nav>
     </header>
-    <div class="mainContent">
+  <main>
+    <section class="main-product-page">
+      <h1>Products Page</h1>
+      <table class="table table-striped " id="productsTable">
+        <thead>
+          <tr>
+            <th> Product Name </th>
+            <th> Product Number </th>
+            <th> Color </th>
+            <th> List Price </th>
+            <th> Modified Date </th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+        <tbody id="product-list">
+          <tr class="product-row">
+            <td class="name"> Product Name </td>
+            <td class="number"> Product - 22 </td>
+            <td class="color"> Red </td>
+            <td class="price"> 800 </td>
+            <td class="modify-date">  </td>
+            <td> 
+                <button type='submit' class="btn btn-secondary edit-btn edit">Edit</button>
+                <button class="btn btn-danger delete product-delete-btn">Delete</button>
+            </td> 
+        </tr>   
+        </tbody>
+    </table>
+    <button class="btn btn-success create-btn">Create New Product</button>
+    <hr/>
+    </section>
 
-        <table style="display: none">
-            <tr id="rowUsedOnlyForCloning">
-                <td class="name"> ProductName </td>
-                <td class="number"> App_22 </td>
-                <td class="price"> $ 3.25 </td>
-                <td class="color"> Green </td>
-                <td class="category"> Fruits </td>
-                <td>
-                    <button class="btn btn-primary">Details</button>
-                    <button class="btn btn-secondary">Edit</button>
-                </td>
-            </tr>
-        </table>
 
-        <h1>Products Page</h1>
-
-        <table class="table table-bordered" id="productsTable">
-
-            <tr>
-                <th> Product Name </th>
-                <th> Product Number </th>
-                <th> Price </th>
-                <th> Color </th>
-                <th> Category </th>
-                <th> </th>
-            </tr>
-
-        </table>
-
-        <button onclick="addRowInTableWithJQuery()" class="btn btn-success">Clone the last Row</button>
-
-        <hr/>
+  <section class="create-form-section">
+    <div class="edit-heading">
+      <h1>
+          Create Product
+      </h1>
+      <hr>
+  </div>
+    <form  action="" method="get" class="edit-form" id="formCreate">
+    <div class="edit-form-container">
+      <div class="form-group">
+        <div class="validation-input">
+          <label class="text-input-label" for="firstName"> Name:</label>
+          <input class="input-text" type="text" name="name" id="nameCreate" >
+        </div>
+        <p class="error-message-name">The Name field is required</p>
+      </div>
+      <div class="form-group">
+        <div class="validation-input">
+          <label class="text-input-label" for="lastName"> Product Number: </label>
+          <input class="input-text" type="text" name="productNumberCreate" id="productNumberCreate" >
+        </div>
+        <p class="error-message-number">The Product Number field is required</p>
+      </div>
+      <div class="form-group">
+        <label class="text-input-label" for="color"> Color: </label>
+        <input class="input-text" type="text" name="color" id="colorCreate" >
+      </div>
+      <div class="form-group">
+        <label class="text-input-label" for="cost"> Standard Cost: </label>
+        <input class="input-text" type="number" name="cost" id="costCreate" >
+      </div>
+      <div class="form-group">
+        <div class="validation-input">
+          <label class="text-input-label" for="price">List Price: </label>
+          <input class="input-text" type="text" name="price" id="priceCreate">
+        </div>
+        <p class="error-message-price"> The field of List price must be between 0.1 and 10000.</p>
+      </div>
+      <div class="form-group">
+        <label class="text-input-label" for="size">Size: </label>
+        <input class="input-text" type="number" name="size" id="sizeCreate">
+      </div>
+      <div class="form-group">
+        <label class="text-input-label" for="weight">Weight: </label>
+        <input class="input-text" type="number" name="weight" id="weightCreate">
+      </div>
+      <div class="form-group">
+        <label class="text-input-label" for="time">Sell Start Date: </label>
+        <input class="input-text" type="password" name="price" id="dateCreate">
+      </div>
     </div>
+  <div class="sign-up-button">
+    <button onclick = saveEditedProduct() class="btn btn-success submit-create-btn" type="submit">Submit</button>
+    <button onclick = returnToList() class="btn btn-secondary return-btn">Back to list</button>
+    <button onclick = deleteProduct() class="btn btn-danger cancel-create-btn">Cancel</button>
+  </div>
+</form>
+</section>
     
+<section class="edit-form-section">
+  <div class="edit-heading">
+    <h1>
+        Product Edit
+    </h1>
+    <hr>
+</div>
+  <form action="" method="get" class="edit-form" id="formEdit">
+    <div class="create-form-container">
+        <div class="form-group">
+          <div class="validation-input">
+            <label class="text-input-label" for="firstName"> Name:</label>
+            <input class="input-text" type="text" name="name" id="nameEdit" >
+          </div>
+          <p class="error-message-name">The Name field is required</p>
+        </div>
+        <div class="form-group">
+          <div class="validation-input">
+            <label class="text-input-label" for="lastName"> Product Number: </label>
+            <input class="input-text" type="text" name="productNumber" id="productNumberEdit" >
+          </div>
+          <p class="error-message-number">The Product Number field is required</p>
+        </div>
+        <div class="form-group">
+          <label class="text-input-label" for="color"> Color: </label>
+          <input class="input-text" type="text" name="color" id="colorEdit" >
+        </div>
+        <div class="form-group">
+          <label class="text-input-label" for="cost"> Standard Cost: </label>
+          <input class="input-text" type="number" name="cost" id="costEdit" >
+        </div>
+        <div class="form-group">
+          <div class="validation-input">
+            <label class="text-input-label" for="price">List Price: </label>
+            <input class="input-text" type="text" name="price" id="priceEdit">
+          </div>
+          <p class="error-message-price"> The field of List price must be between 0.1 and 10000.</p>
+        </div>
+        <div class="form-group">
+          <label class="text-input-label" for="size">Size: </label>
+          <input class="input-text" type="number" name="size" id="sizeEdit">
+        </div>
+        <div class="form-group">
+          <label class="text-input-label" for="weight">Weight: </label>
+          <input class="input-text" type="number" name="weight" id="weightEdit">
+        </div>
+        <div class="form-group">
+          <label class="text-input-label" for="time">Sell Start Date: </label>
+          <input class="input-text" type="password" name="price" id="dateEdit">
+        </div>
+      </div>
+    <div class="sign-up-button">
+      <button onclick = saveEditedProduct() class="btn btn-success submit-edit-btn" type="submit">Submit</button>
+      <button onclick = returnToList() class="btn btn-secondary return-btn">Back to list</button>
+      <button onclick = deleteProduct() class="btn btn-danger delete-edit-btn">Delete</button>
+    </div>
+  </form>
+</section>
+<section class="delete-confirmation">
+  <h1> Confirm Delete Product</h1>
+  <h6 class="alert alert-danger">Are you sure you want to delete the next product? </h6>
+  <div>
+    <h3> Product ID: </h3>
+    <span class="comp-id"></span>
+  </div>
+  <div>
+    <h3> Name: </h3>
+    <span class="comp-bame"></span>
+  </div>
+  <div>
+    <h3> Product Number: </h3>
+    <span class="comp-number"></span>
+  </div>
+  <div>
+    <h3> Color: </h3>
+    <span class="comp-color"></span>
+  </div>
+  <div>
+    <h3> Standard Cost: </h3>
+    <span class="comp-cost"></span>
+  </div>
+  <div>
+    <h3> List Price: </h3>
+    <span class="comp-price"></span>
+  </div>
+  <div>
+    <h3> Size: </h3>
+    <span class="comp-size"></span>
+  </div>
+  <div>
+    <h3> Weight: </h3>
+    <span class="comp-weight"></span>
+  </div>
+  <div>
+    <h3>
+      Product Category ID:
+    </h3>
+    <div>
+      <span class="comp-model-id"></span>
+      <h3>Product Model Id</h3>
+    </div>
+    <div>
+      <span class="comp-modify"></span>
+      <h3>Modified Date</h3>
+    </div>
+
+  </div>
+  <div class="delete-confirmation-buttons">
+    <button class="btn btn-danger confirm-delete-btn"> Delete the Product</button>
+    <button class="btn btn-primary confirm-cancel-btn">Cancel - Back to List</button>
+  </div>
+</section>
+</main>
 </body>
 
 </html>

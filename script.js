@@ -52,3 +52,41 @@ function addRowInTableWithJQuery()
     $("#productsTable").append(row);
     index++;
 }
+
+function saveEditedProduct() {
+
+}
+
+function returnToList() {
+    location.href = "index.html"
+}
+
+function cancelOperation() {
+    location.href = "index.html"
+}
+
+function deleteProduct() {
+
+}
+
+let str = "Please locate the door to the left";
+console.log(str.indexOf("ease"));
+
+let strng = "55";
+console.log(strng.padEnd(4,0))
+
+
+
+// //delete
+// let productList = document.querySelector("#product-list")
+// productList.addEventListener('click', (e) => {
+//     target = e.target;
+//     console.log(target);
+//     if(target.classList.contains("delete")) {
+//         target.parentElement.parentElement.remove();
+//     }
+// })
+
+
+//create 
+
